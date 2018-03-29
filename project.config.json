@@ -1,0 +1,56 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.91",
+	"appid": "wxf488b7428e332e1b",
+	"projectname": "doubanMovie",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "search",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": "1011"
+				},
+				{
+					"id": -1,
+					"name": "list",
+					"pathName": "pages/list/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "me",
+					"pathName": "pages/me/me",
+					"query": ""
+				}
+			]
+		}
+	}
+}

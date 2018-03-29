@@ -1,0 +1,36 @@
+<view class='container'>
+  <view class='search'>
+    <input confirm-type="search" placeholder-style="color:#ccc" class='search-input' selection-start="{{selectionStart}}" selection-end="{{selectionEnd}}" placeholder="请输入电影名" focus='true' bindfocus="{{onInputFocus}}" bindconfirm="onTapConfirm" bindblur="{{onInputBlur}}"></input>
+  </view>
+
+  <view hidden='{{summaryHidden}}' class='summary'>
+    {{title}}，总找到 {{total}} 条记录
+  </view>
+
+  <!-- 电影列表 -->
+  <block wx:for="{{movies}}" wx:key="{{item.id}}">
+    <view class='content' catchtap='onTapMovie' data-movieId="{{item.id}}">
+      <view class='leftArea'>
+        <view class='title'>{{item.title}}</view>
+        <view class='year'>上映年份：{{item.year}}</view>
+        <view class='duration'>影片时长：
+          <block wx:for="{{item.durations}}" wx:for-item="time" wx:key="{{duration}}">
+            <text>{{time}}</text>
+          </block>
+        </view>
+        <view class='director'>导演:
+          <block wx:for="{{item.directors}}" wx:for-item="director" wx:key="{{director}}">
+            <text>{{director.name}} </text>
+          </block>
+        </view>
+      </view>
+      <view class='rightArea'>
+        <view class='score'>{{item.rating.average}}
+          <text> 分</text>
+        </view>
+      </view>
+    </view>
+    <view class='split-line'></view>
+  </block>
+  <view class='no-more' wx:if="{{hasMore}}">没有更多内容了</view>
+</view>

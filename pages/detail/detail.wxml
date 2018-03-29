@@ -1,0 +1,95 @@
+<view class='container'>
+  <view class='cover-wrap'>
+    <image class='cover-large' src="{{images.large}}"></image>
+    <image class='cover-small' src="{{images.small}}"></image>
+    <view class='cover-text'>
+      <text class='title'>{{title}}</text>
+      <view class='countries'>{{countries}}·{{year}}</view>
+      <view class='ratings-count'>
+        <text class='text'>豆瓣评分 <text class='rating'>{{rating.average}}</text> </text>
+        <text class='text'>评分人数 <text class='rating'>{{ratings_count}}</text></text>
+      </view>
+    </view>
+  </view>
+  <view class='base'>
+    <view class='title'>{{original_title}}</view>
+
+     <view class='line'>
+      <text class='text'>评分</text>{{rating.average}}
+    </view> 
+
+    <view class='line'>
+      <text class='text'>类型</text>{{genres}}
+    </view>
+
+    <view class='line'>
+      <text class='text'>时长</text>{{durations}}
+    </view>
+
+    <view class='line'>
+      <text class='text'>导演</text>
+      <block wx:for="{{directors}}" wx:key="{{item.id}}">
+        <text class='subText'>{{item.name}}  </text>
+      </block>
+    </view>
+
+    <view class='line'>
+      <text class='text'>编剧</text>
+      <block wx:for="{{writers}}" wx:key="{{item.id}}">
+        <text class='subText'>{{item.name}}  </text>
+      </block>
+    </view>
+
+    <view class='line'>
+      <text class='text'>演员</text>
+      <block wx:for="{{casts}}" wx:key="{{item.id}}">
+        <text class='subText'>{{item.name}}  </text>
+      </block>
+    </view>
+
+    <view class='line'>
+      <text class='text'>标签</text>{{tags}}
+    </view>
+  </view>
+
+  <!-- 分割线 -->
+  <view class='split-line'></view>
+
+  <view class='summary'>
+    <view class='section-title'>剧情简介</view>
+    <text>{{summary}}</text>
+  </view>
+
+  <!-- 分割线 -->
+  <view class='split-line'></view>
+
+  <!-- 影人 -->
+  <view class='section'>
+    <view class='section-title relative-title'>影人照片</view>
+    <scroll-view class='casts' scroll-x>
+      <block wx:for="{{casts}}" wx:for-item="item" wx:key="{{item.id}}">
+        <view class='cast'>
+           <image class='cast-img' src="{{item.avatars.large}}" alt="影人"></image> 
+          <view class='cast-text'>{{item.name}}</view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <!-- 分割线 -->
+  <view class='split-line'></view>
+
+  <!-- 剧照 -->
+  <view class='section'>
+    <view class='section-title relative-title'>相关剧照</view>
+    <scroll-view class='photos' scroll-x>
+      <block wx:for="{{photos}}" wx:for-item="item" wx:key="{{item.id}}">
+        <!-- <view class='photo'> -->
+        <image class='photo-img' src="{{item.image}}" alt="剧照"></image>
+        <!-- </view> -->
+      </block>
+    </scroll-view>
+  </view>
+
+  <view class='no-more'>没有更多了！</view>
+</view>

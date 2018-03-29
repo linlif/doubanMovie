@@ -1,0 +1,30 @@
+<!-- 首页列表 -->
+<template name="moviesList">
+  <scroll-view class='movies-list' scroll-x>
+    <block wx:for="{{movieItem.movies}}" wx:for-item="item" wx:key="{{item.id}}">
+      <view class='item'>
+        <image class='movie-img' src="{{item.images.large}}"></image>
+        <view class='movie-name'>{{item.title}}</view>
+      </view>
+    </block>
+  </scroll-view>
+</template>
+
+<!-- 更多电影列表 -->
+<template name="list">
+  <block wx:for="{{movies}}" wx:key="item.id">
+    <view class='item'>
+      <image class='cover' src="{{item.images.small}}"></image>
+      <text class='title'>{{item.title}}</text>
+    </view>
+  </block>
+</template>
+
+<template name="movie">
+  <image class='movie-img' src="{{movie.images.large}}"></image>
+  <text class='movie-name'>{{movie.title}}</text>
+  <view class='movie-score'>
+    豆瓣评分
+    <text class='movie-score-text'>{{movie.rating.average}}</text>
+  </view>
+</template>

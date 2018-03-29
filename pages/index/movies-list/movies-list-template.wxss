@@ -1,0 +1,70 @@
+/**index.wxss**/
+
+page {
+  background: #f8f8f8;
+}
+
+.slide-image {
+  width: 750rpx;
+  height: 500rpx;
+}
+
+.title {
+  font-size: 14px;
+  color: #999;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.btn-title {
+  float: right;
+  width: 40rpx;
+  height: 40rpx;
+  color: #999;
+}
+
+.section {
+  background: white;
+  margin: 40rpx 0;
+  padding: 20rpx;
+}
+
+.movies-list {
+  display: flex;
+  flex-direction: row;
+  /* height: 400rpx; */
+  width: 100%;
+  white-space: nowrap; /*巨坑，不设置横向滚动不生效*/
+  align-content: center;
+  justify-content: center;
+}
+
+.item {
+  width: 210rpx;
+  display: inline-block; /*巨坑，不设置横向滚动不生效*/
+  margin-right: 20rpx;
+}
+
+.movie-img {
+  height: 320rpx;
+  width: 100%;
+  display: block;
+}
+
+.movie-name {
+  font-size: 12px;
+  width: 100%；;
+  display: block;
+  margin-top: 6px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.movie-score {
+  font-size: 12px;
+}
+
+.movie-score-text {
+  color: red;
+}

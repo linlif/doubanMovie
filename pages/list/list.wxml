@@ -1,0 +1,16 @@
+<import src="../index/movies-list/movies-list-template" />
+
+<view class='item-wrap'>
+  <block wx:for="{{movies}}" wx:key="item.id">
+    <view wx:if="{{type=='weekly'||type=='us_box'}}" class='item' catchtap='onMovieTap' data-id="{{item.subject.id}}">
+      <template is="movie" data="{{movie:item.subject}}"></template>
+    </view>
+    <view wx:else class='item' catchtap='onMovieTap' data-id="{{item.id}}">
+      <template is="movie" data="{{movie:item}}"></template>
+    </view>
+  </block>
+</view>
+<!-- <view wx:if="{{hasMore}}">
+  <loading wx:if="{{loading}}">加载中..</loading>
+</view> -->
+<view class='no-more' wx:if='{{!hasMore}}'>没有更多了！</view>

@@ -1,0 +1,155 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.cover-wrap {
+  width: 100%;
+  height: 360rpx;
+  overflow: hidden;
+}
+
+.cover-text {
+  position: absolute;
+  top: 50rpx;
+  margin: 30rpx;
+  line-height: 34px;
+  color: white;
+  text-shadow: 0 0.5px #333;
+}
+
+.title {
+  font-size: 36rpx;
+  line-height: 24px;
+  width: 480rpx;
+}
+
+.countries {
+  font-size: 13px;
+}
+
+.ratings-count {
+  font-size: 13px;
+}
+
+.ratings-count .text {
+  color: white;
+  margin-right: 5px;
+}
+
+.ratings-count .rating {
+  color: red;
+  text-shadow: none;  
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.cover-large {
+  width: 100%;
+  filter: blur(10px);
+}
+
+.cover-small {
+  position: absolute;
+  right: 50rpx;
+  top: 180rpx;
+  width: 180rpx;
+  height: 261rpx;
+}
+
+.base {
+  padding: 30rpx;
+}
+
+.line {
+  font-size: 14px;
+  line-height: 28px;
+}
+
+.line .subText {
+  color: #333;
+}
+
+.line .text {
+  color: #999;
+  margin-right: 10px;
+}
+
+.split-line {
+  width: 100%;
+  height: 2rpx;
+  background: #ddd;
+}
+
+.summary {
+  padding: 30rpx;
+  font-size: 14px;
+  line-height: 28px;
+  color: #333;
+}
+
+.section {
+  overflow: hidden;
+  width: 100%;
+}
+
+.section-title {
+  margin-bottom: 10px;
+  color: #999;
+  font-size: 16px;
+}
+
+.relative-title {
+  margin: 30rpx 0 30rpx 26rpx;
+}
+
+.casts {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  white-space: nowrap; /*巨坑，不设置横向滚动不生效*/
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 40rpx;
+  overflow: hidden;
+  padding: 0 20rpx;
+}
+
+.cast {
+  display: inline-block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.cast-img {
+  width: 270rpx;
+  height: 383rpx;
+  margin-right: 30rpx;
+}
+
+.cast-text {
+  font-size: 12px;
+  margin: 10rpx 0;
+}
+
+.photos {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 302rpx;
+  white-space: nowrap; /*巨坑，不设置横向滚动不生效*/
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 40rpx;
+  overflow: hidden;
+  padding: 0 20rpx;
+}
+
+.photo-img {
+  width: 466rpx;
+  height: 302rpx;
+  margin-right: 30rpx;
+}

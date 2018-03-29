@@ -1,0 +1,96 @@
+page {
+  background: #f8f8f8;
+}
+
+.container {
+  padding: 20rpx 0;
+  background: #f8f8f8;
+}
+
+.search-input {
+  border: 2rpx solid #ccc;
+  border-radius: 50rpx;
+  padding-left: 44rpx;
+  height: 72rpx;
+  margin: 30rpx;
+  background: white;
+  margin-bottom: 50rpx;
+}
+
+.summary {
+  text-align: center;
+  font-size: 12px;
+  color: #ccc;
+  margin: 20rpx;
+}
+
+.no-more {
+  text-align: center;
+  color: #909090;
+  margin-top: 40rpx;
+  font-size: 16px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* flex-wrap: nowrap; */
+  color: #999;
+  position: relative;
+  font-size: 12px;
+  line-height: 54rpx;
+  padding: 30rpx 40rpx;
+  background: white;
+}
+
+.leftArea {
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.split-line {
+  width: 100%;
+  height: 4rpx;
+  color: #f2f2f2;
+}
+
+.content:last-child {
+  border-bottom: none;
+}
+
+.content:first-child {
+  border-top: none;
+}
+
+.title {
+  font-size: 16px;
+  color: #333;
+}
+
+.score {
+  color: orange;
+  font-size: 24px;
+  line-height: 48rpx;
+  flex-wrap: nowrap;
+  flex: 180rpx;
+  margin-top: 10rpx;
+}
+
+.score text {
+  color: #ccc;
+  font-size: 12px;
+}
+
+/* .score::after{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100rpx;
+  height: 80rpx;
+  background-color: orange;
+  top: -15rpx;
+  right: 0;
+  z-index: -1;
+  border-radius: 15px;
+} */

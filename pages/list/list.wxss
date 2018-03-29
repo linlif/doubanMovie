@@ -1,0 +1,18 @@
+/**index.wxss**/
+@import "../index/movies-list/movies-list-template.wxss";
+
+page{
+   background: #fff; 
+}
+
+.item-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+ .item {
+  margin: 20rpx;
+} 
+
+
