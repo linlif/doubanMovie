@@ -2,22 +2,23 @@
 <import src="./movies-list/movies-list-template.wxml" />
 
 <!-- banner滚动 -->
- <swiper class='swiper-banner' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+<!-- <swiper class='swiper-banner' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
   <block wx:for="{{imgUrls}}" wx:key="{{item}}">
     <swiper-item>
       <image src="{{item}}" class="slide-image" width="355" height="150" />
     </swiper-item>
   </block>
-</swiper> 
+</swiper>  -->
 
 <!-- section -->
 <block wx:for="{{movies}}" wx:for-item="movieItem" wx:key="{{movieItem.title}}">
   <view class='section'>
-    <view class='title'>
-      <!-- <text wx:if="{{movieItem.key === 'in_theaters'}}">{{currentCity}}</text> -->
-      <text>{{movieItem.title}}</text>
-      <navigator class='more' url="/pages/list/list?title={{movieItem.title}}&type={{movieItem.key}}">更多</navigator>
-    </view>
+    <!-- <view class='title'> -->
+      <navigator class='more' url="/pages/list/list?title={{movieItem.title}}&type={{movieItem.key}}">
+        <text class='title'>{{movieItem.title}}</text>
+        <image class="arrow-right" src='/images/right-arrow.png'></image>
+      </navigator>
+    <!-- </view> -->
     <!-- 横向列表 -->
     <scroll-view class='movies-list' scroll-x>
       <block wx:for="{{movieItem.movies}}" wx:for-item="item" wx:key="{{item.id}}">
