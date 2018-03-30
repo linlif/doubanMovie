@@ -24,7 +24,7 @@
   <image class='movie-img' src="{{movie.images.large}}"></image>
   <text class='movie-name'>{{movie.title}}</text>
   <view class='movie-score'>
-    豆瓣评分
+    <text class='movie-score-title'>豆瓣评分</text>
     <text class='movie-score-text'>{{movie.rating.average}}</text>
   </view>
 </template>

@@ -12,12 +12,18 @@ page {
 .more {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 2px;
+  align-items: center;
+  line-height: 20px;
+  height: 0px;
+  margin: 10px 0 14px 0;
 }
+
 
 
 
  .arrow-right {
   width: 20px;
   height: 20px;
+  line-height: 30px;
+  margin-bottom: 10px;
 } 

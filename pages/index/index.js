@@ -3,15 +3,15 @@ const app = getApp()
 
 Page({
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    indicatorDots: true,
-    autoplay: true,
-    interval: 3000,
-    duration: 500,
+    // imgUrls: [
+    //   'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+    //   'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
+    //   'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
+    // ],
+    // indicatorDots: true,
+    // autoplay: true,
+    // interval: 3000,
+    // duration: 500,
     currentCity: '正在上映的电影-北京',
     title: '',
     subtitle: '加载中...',
@@ -19,7 +19,7 @@ Page({
     loading: true,
     hasMore: true,
     page: 1,
-    size: 5,
+    size: 6,
 
     movies: [
       { key: 'in_theaters' },
@@ -52,7 +52,7 @@ Page({
           return board
         })
     })
-    Promise.all(promises).then(movies => this.setData({ movies: movies, loading: false }));
+    Promise.all(promises).then(movies => this.setData({ movies: movies, loading: false, hasMore: false }));
     // 取消下拉刷新
     wx.stopPullDownRefresh();
   },
@@ -90,7 +90,6 @@ Page({
    * 触底事件处理函数--监听用户的上拉动作
    */
   onReachBottom() {
-    console.log(event)
     if (this.data.movies.length < 5) {
       this.setData({
         movies: this.data.movies.concat(

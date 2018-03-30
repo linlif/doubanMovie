@@ -13,7 +13,6 @@
 <!-- section -->
 <block wx:for="{{movies}}" wx:for-item="movieItem" wx:key="{{movieItem.title}}">
   <view class='section'>
-    <!-- <view class='title'> -->
       <navigator class='more' url="/pages/list/list?title={{movieItem.title}}&type={{movieItem.key}}">
         <text class='title'>{{movieItem.title}}</text>
         <image class="arrow-right" src='/images/right-arrow.png'></image>
@@ -38,3 +37,5 @@
     </scroll-view>
   </view>
 </block>
+
+<view wx:if="{{!hasMore}}" class='no-more'>没有更多了</view>
