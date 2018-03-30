@@ -67,23 +67,8 @@ Page({
     wx.setNavigationBarTitle({
       title: '加载中..'
     })
+    // loading
     wx.showNavigationBarLoading()
-
-    // app.douban.find(this.data.type, this.data.page, this.data.count)
-    //   .then(d => {
-    //     console.log(d)
-    //     _this.setData({
-    //       title: d.title,
-    //       movies: d.subjects,
-    //       loading: false,
-    //       hasMore: true,
-    //     });
-    //     // loading
-    //     wx.hideNavigationBarLoading();
-    //     wx.setNavigationBarTitle({
-    //       title: options.title
-    //     });
-    //   });
     this.setData({
       page: 1,
       count: 10,

@@ -43,6 +43,11 @@ Page({
    * 加载数据
    */
   loadData: function () {
+    // loading
+    wx.showNavigationBarLoading();
+    wx.setNavigationBarTitle({
+      title: '加载中..'
+    });
     const promises = this.data.movies.map(board => {
       return app.douban.find(board.key, this.data.page, this.data.count)
         .then(d => {
@@ -52,9 +57,18 @@ Page({
           return board
         })
     })
-    Promise.all(promises).then(movies => this.setData({ movies: movies, loading: false, hasMore: false }));
-    // 取消下拉刷新
-    wx.stopPullDownRefresh();
+    Promise.all(promises).then(movies => {
+      this.setData({ movies: movies, loading: false, hasMore: false })
+      // 取消下拉刷新
+      wx.stopPullDownRefresh();
+      // 取消loading
+      wx.hideNavigationBarLoading();
+      wx.setNavigationBarTitle({
+        title: '榜单'
+      });
+    });
+
+
   },
 
   // 点击单个电影跳转
@@ -90,6 +104,7 @@ Page({
    * 触底事件处理函数--监听用户的上拉动作
    */
   onReachBottom() {
+    // 判断是否已经加载完毕
     if (this.data.movies.length < 5) {
       this.setData({
         movies: this.data.movies.concat(
@@ -99,5 +114,6 @@ Page({
       });
       this.loadData();
     }
+
   },
 });
