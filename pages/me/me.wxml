@@ -5,4 +5,10 @@
   </block>
 </view> -->
 
-<view class='container'>欢迎来到，个人中心！</view>
+<view class='container'>
+  <view class='qrcode-wrap'>
+    <image class='qrcode' src='../../images/gift.png'></image>
+  </view>
+  <text class='thanks'>感谢使用，欢迎打赏！</text>
+  <text class='text'>https://github.com/linlif/doubanMovie</text>
+</view>

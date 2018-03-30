@@ -1,5 +1,24 @@
-.container{
+.container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  padding: 30rpx;
+}
+
+.qrcode-wrap {
+  display: flex;
   align-items: center;
+}
+
+.qrcode {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+.thanks{
+  text-align: center;
+  color: #ccc;  
+}
+.text {
+  color: #ccc;
+  margin: 40rpx 0;
 }

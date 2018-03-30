@@ -7,9 +7,8 @@
     "pages/detail/detail"
   ],
   "window": {
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "豆瓣电影",
+    "navigationBarTitleText": "榜单",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

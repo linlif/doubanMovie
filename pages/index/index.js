@@ -1,8 +1,6 @@
 // 获取全局应用程序实例对象
 const app = getApp()
 
-var postData = require('../data.js');
-
 Page({
   data: {
     imgUrls: [
@@ -14,9 +12,7 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 500,
-
     currentCity: '正在上映的电影-北京',
-
     title: '',
     subtitle: '加载中...',
     type: 'in_theaters',
@@ -29,9 +25,9 @@ Page({
       { key: 'in_theaters' },
       { key: 'coming_soon' },
       { key: 'top250' },
-      { key: 'new_movies' },
-      { key: 'weekly' },
-      { key: 'us_box', name: '北美票房榜' }
+      // { key: 'new_movies' },
+      // { key: 'weekly' },
+      // { key: 'us_box', name: '北美票房榜' }
     ],
   },
 
@@ -73,14 +69,20 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    wx.setNavigationBarTitle({ title: '豆瓣电影' })
+    // wx.setNavigationBarTitle({ title: '电影榜单' })
   },
 
   /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-  onPullDownRefresh() {
-    // this.setData({ movies: [], page: 1, hasMore: true })
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh(event) {
+    this.setData({
+      movies: [
+        { key: 'in_theaters' },
+        { key: 'coming_soon' },
+        { key: 'top250' },
+      ]
+    });
     this.loadData();
   },
 
@@ -88,7 +90,15 @@ Page({
    * 触底事件处理函数--监听用户的上拉动作
    */
   onReachBottom() {
-    // this.loadMore()
+    console.log(event)
+    if (this.data.movies.length < 5) {
+      this.setData({
+        movies: this.data.movies.concat(
+          { key: 'new_movies' },
+          { key: 'weekly' },
+          { key: 'us_box', name: '北美票房榜' })
+      });
+      this.loadData();
+    }
   },
-
-})
+});
