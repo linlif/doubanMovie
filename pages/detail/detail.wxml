@@ -1,7 +1,7 @@
 <view class='container'>
   <view class='cover-wrap'>
-    <image class='cover-large' src="{{images.large}}"></image>
-    <image class='cover-small' src="{{images.small}}"></image>
+    <image class='cover-large' mode='aspectFill' src="{{images.large}}"></image>
+    <image class='cover-small' mode="aspectFit" src="{{images.small}}"></image>
     <view class='cover-text'>
       <text class='title'>{{title}}</text>
       <view class='countries'>{{countries}}·{{year}}</view>

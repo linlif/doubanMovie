@@ -5,6 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // movieId: 0,
+    // imgalist: [],
+    // res: {},
+    // casts: [],
+    // photos: []
   },
 
   /**
@@ -13,15 +18,17 @@ Page({
   onLoad: function (options) {
     wx.showLoading({
       title: '加载中..',
-      mask:true
+      mask: true
     });
     this.setData({
-      movieId: options.movieId
+      movieId: options.movieId,
     });
     app.douban.findOne(options.movieId).then(res => {
       console.log(res)
-      this.setData(res)
-      wx.hideLoading();      
+      this.setData(res);
+      console.log(this.data.casts)
+      console.log(this.data.photos)
+      wx.hideLoading();
     });
   },
 
@@ -29,7 +36,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.setNavigationBarTitle({title:'电影详情'});
+    wx.setNavigationBarTitle({ title: '电影详情' });
   },
 
   /**
@@ -58,5 +65,12 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  // imgPreview: function () {
+  //   wx.previewImage({
+  //     current: this.data.casts, // 当前显示图片的http链接   
+  //     urls: this.data.casts // 需要预览的图片http链接列表   
+  //   })
+  // },
 })

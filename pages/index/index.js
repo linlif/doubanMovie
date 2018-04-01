@@ -114,6 +114,16 @@ Page({
       });
       this.loadData();
     }
-
   },
+  /*
+     * 定义页面分享函数
+     */
+  onShareAppMessage: function (event) {
+    return {
+      title: '电影榜单',
+      desc: '豆瓣电影榜单速查，掌握最新电影资讯！',
+      path: '/pages/index/index'
+    }
+  }
+
 });

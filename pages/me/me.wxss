@@ -24,8 +24,14 @@
 
 .thanks {
   text-align: center;
+  font-size: 16px;
+  margin-top: 5px;
+  
 }
-
+.tips{
+  font-size: 10px;
+  margin-top: 10px;
+}
 .link {
   font-size: 14px;  
   margin-top: 680rpx;  
