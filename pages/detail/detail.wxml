@@ -63,7 +63,7 @@
   <!-- 分割线 -->
   <view class='split-line'></view>
 
-  <view scroll-x class='section'>
+  <view class='section'>
     <view class='section-title relative-title'>影片预告</view>
     <view class='video-list'>
       <view class='no-content' wx:if='{{trailers.length <= 0}}'>暂无内容</view>
@@ -103,21 +103,6 @@
         <!-- </view> -->
       </block>
     </scroll-view>
-  </view>
-
-
-  <!-- 分割线 -->
-  <view class='split-line'></view>
-
-  <view scroll-x class='section'>
-    <view class='section-title relative-title'>影片花絮</view>
-    <view class='video-list'>
-      <view class='no-content' wx:if='{{clips.length <= 0}}'>暂无内容</view>
-      <view class='v-item' wx:for="{{clips}}" wx:for-item="vItem" wx:key='{{vItem.id}}'>
-        <view class='v-title'>{{vItem.title}}</view>
-        <video class='video' src='{{vItem.resource_url}}' poster='{{vItem.medium}}'></video>
-      </view>
-    </view>
   </view>
 
   <view class='no-more'>没有更多了！</view>
