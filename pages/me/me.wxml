@@ -11,6 +11,6 @@
     <text class='thanks'>感谢使用，欢迎打赏</text>
     <text class='tips'>提示: 先点击图片，然后长按可识别二维码</text>
   </view>
-  <text class='link'>https://github.com/linlif/doubanMovie</text>
+  <!-- <text class='link'>https://github.com/linlif/doubanMovie</text> -->
   <!-- <text class='copyright'>linlif in shenzhen</text> -->
 </view>

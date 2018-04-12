@@ -14,9 +14,9 @@
   <view class='base'>
     <view class='title'>{{original_title}}</view>
 
-     <view class='line'>
+    <view class='line'>
       <text class='text'>评分</text>{{rating.average}}
-    </view> 
+    </view>
 
     <view class='line'>
       <text class='text'>类型</text>{{genres}}
@@ -63,13 +63,27 @@
   <!-- 分割线 -->
   <view class='split-line'></view>
 
+  <view scroll-x class='section'>
+    <view class='section-title relative-title'>影片预告</view>
+    <view class='video-list'>
+      <view class='no-content' wx:if='{{trailers.length <= 0}}'>暂无内容</view>
+      <view class='v-item' wx:for="{{trailers}}" wx:for-item="vItem" wx:key='{{vItem.id}}'>
+        <view class='v-title'>{{vItem.title}}</view>
+        <video class='video' src='{{vItem.resource_url}}' poster='{{vItem.medium}}'></video>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分割线 -->
+  <view class='split-line'></view>
+
   <!-- 影人 -->
   <view class='section'>
     <view class='section-title relative-title'>影人照片</view>
     <scroll-view class='casts' scroll-x>
       <block wx:for="{{casts}}" wx:for-item="item" wx:key="{{item.id}}">
         <view class='cast'>
-           <image class='cast-img' src="{{item.avatars.large}}" alt="影人"></image> 
+          <image class='cast-img' src="{{item.avatars.large}}" alt="影人"></image>
           <view class='cast-text'>{{item.name}}</view>
         </view>
       </block>
@@ -89,6 +103,21 @@
         <!-- </view> -->
       </block>
     </scroll-view>
+  </view>
+
+
+  <!-- 分割线 -->
+  <view class='split-line'></view>
+
+  <view scroll-x class='section'>
+    <view class='section-title relative-title'>影片花絮</view>
+    <view class='video-list'>
+      <view class='no-content' wx:if='{{clips.length <= 0}}'>暂无内容</view>
+      <view class='v-item' wx:for="{{clips}}" wx:for-item="vItem" wx:key='{{vItem.id}}'>
+        <view class='v-title'>{{vItem.title}}</view>
+        <video class='video' src='{{vItem.resource_url}}' poster='{{vItem.medium}}'></video>
+      </view>
+    </view>
   </view>
 
   <view class='no-more'>没有更多了！</view>
