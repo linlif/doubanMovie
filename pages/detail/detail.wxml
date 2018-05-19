@@ -83,7 +83,7 @@
     <scroll-view class='casts' scroll-x>
       <block wx:for="{{casts}}" wx:for-item="item" wx:key="{{item.id}}">
         <view class='cast'>
-          <image class='cast-img' src="{{item.avatars.large}}" alt="影人"></image>
+          <image mode='aspectFit' class='cast-img' src="{{item.avatars.small}}" alt="影人" bindtap='previewImage' data-type='castPhoto' data-src='{{item.avatars.large}}'></image>
           <view class='cast-text'>{{item.name}}</view>
         </view>
       </block>
@@ -99,11 +99,17 @@
     <scroll-view class='photos' scroll-x>
       <block wx:for="{{photos}}" wx:for-item="item" wx:key="{{item.id}}">
         <!-- <view class='photo'> -->
-        <image class='photo-img' src="{{item.image}}" alt="剧照"></image>
+        <image mode='aspectFit' class='photo-img' src="{{item.thumb}}" alt="剧照" data-type='stagePhoto' bindtap='previewImage' data-src='{{item.image}}'></image>
         <!-- </view> -->
       </block>
     </scroll-view>
   </view>
 
   <view class='no-more'>没有更多了！</view>
+
+  <button open-type='share' class='share-btn'>
+    <cover-view bindtap='shareBtnTap' class='share-btn'>分享
+    </cover-view>
+  </button>
+
 </view>

@@ -21,6 +21,9 @@ const douban = require('../../utils/douban.js')
  */
 const baidu = require('../../utils/baidu.js')
 
+// 版本更新
+const updateManager = wx.getUpdateManager()
+
 
 Page({
   data: {
@@ -52,11 +55,11 @@ Page({
     ],
   },
 
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
+    // 获取用户位置并发起数据请求
     wechat
       .getLocation()
       .then(res => {
@@ -67,12 +70,41 @@ Page({
         this.data.currentCity = name.replace('市', '')
         console.log(`currentCity : ${this.data.currentCity}`)
         // 加载数据
-        this.loadData();        
+        this.loadData();
       })
       .catch(err => {
         this.data.currentCity = '北京'
         console.error(err)
       })
+
+    // 请求更新
+    updateManager.onCheckForUpdate(function (res) {
+      // 请求完新版本信息的回调
+      console.log(res.hasUpdate)
+    })
+    // 新版本代码更新准备好了
+    updateManager.onUpdateReady(function () {
+      wx.showModal({
+        title: '更新提示',
+        content: '新版本已经准备好，是否重启应用？',
+        success: function (res) {
+          if (res.confirm) {
+            // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+            updateManager.applyUpdate()
+          }
+        }
+      })
+
+    })
+    // 更新失败了
+    updateManager.onUpdateFailed(function () {
+      // 新的版本下载失败
+      wx.showToast({
+        title: '更新失败！',
+      })
+    })
+
+    
   },
 
   /**
@@ -157,7 +189,7 @@ Page({
   onShareAppMessage: function (event) {
     return {
       title: '电影榜单',
-      desc: '豆瓣电影榜单速查，掌握最新电影资讯！',
+      desc: '最新电影，热映电影，在线看预告片！',
       path: '/pages/index/index'
     }
   }
