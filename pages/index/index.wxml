@@ -13,11 +13,10 @@
 <!-- section -->
 <block wx:for="{{movies}}" wx:for-item="movieItem" wx:key="{{movieItem.title}}">
   <view class='section'>
-      <navigator class='more' url="/pages/list/list?title={{movieItem.title}}&type={{movieItem.key}}">
-        <text class='title'>{{movieItem.title}}</text>
-        <image class="arrow-right" src='/images/right-arrow.png'></image>
-      </navigator>
-    <!-- </view> -->
+    <navigator class='more' url="/pages/list/list?title={{movieItem.title}}&type={{movieItem.key}}">
+      <text class='title'>{{movieItem.title}}</text>
+      <image class="arrow-right" src='/images/right-arrow.png'></image>
+    </navigator>
     <!-- 横向列表 -->
     <scroll-view class='movies-list' scroll-x>
       <block wx:for="{{movieItem.movies}}" wx:for-item="item" wx:key="{{item.id}}">

@@ -21,8 +21,8 @@ function fetchApi(type, params) {
  * @param  {Number} count  页条数
  * @return {Promise}       包含抓取任务的Promise
  */
-function find(type, page = 1, count = 5) {
-  const params = { start: page, count: count, city: getApp().data.currentCity }
+function find(type, page = 1, count = 5, curCity) {
+  const params = { start: page, count: count, city: curCity || getApp().data.currentCity }
   return fetchApi(type, params)
     .then(res => res.data)
 }

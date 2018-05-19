@@ -1,6 +1,27 @@
 // 获取全局应用程序实例对象
 const app = getApp()
 
+/**
+ * WeChat API 模块
+ * @type {Object}
+ * 用于将微信官方`API`封装为`Promise`方式
+ * > 小程序支持以`CommonJS`规范组织代码结构
+ */
+const wechat = require('../../utils/wechat.js')
+
+/**
+ * Douban API 模块
+ * @type {Object}
+ */
+const douban = require('../../utils/douban.js')
+
+/**
+ * Baidu API 模块
+ * @type {Object}
+ */
+const baidu = require('../../utils/baidu.js')
+
+
 Page({
   data: {
     // imgUrls: [
@@ -36,7 +57,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-    this.loadData();
+    wechat
+      .getLocation()
+      .then(res => {
+        const { latitude, longitude } = res
+        return baidu.getCityName(latitude, longitude)
+      })
+      .then(name => {
+        this.data.currentCity = name.replace('市', '')
+        console.log(`currentCity : ${this.data.currentCity}`)
+        // 加载数据
+        this.loadData();        
+      })
+      .catch(err => {
+        this.data.currentCity = '北京'
+        console.error(err)
+      })
   },
 
   /**
@@ -49,7 +85,7 @@ Page({
       title: '加载中..'
     });
     const promises = this.data.movies.map(board => {
-      return app.douban.find(board.key, this.data.page, this.data.count)
+      return app.douban.find(board.key, this.data.page, this.data.count, this.data.currentCity)
         .then(d => {
           console.log(d)
           board.movies = d.subjects

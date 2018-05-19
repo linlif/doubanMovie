@@ -5,6 +5,8 @@ Page({
   data: {
     welcome: "",
     qrcodeUrl: '',
+    systemInfo: {},
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   onLoad: function () {
     // var qrcodeUrl = '/images/gift.png';
@@ -13,28 +15,69 @@ Page({
       welcome: '欢迎来到个人中心！',
       qrcodeUrl: qrcodeUrl
     })
+
+    // 获取系统信息
+    wx.getSystemInfo({
+      success: res => {
+        console.log(res)
+        this.setData({
+          systemInfo: res
+        })
+      },
+    })
+
+    // 获取当前网络状态
+    wx.getNetworkType({
+      success: res => {
+        // 返回网络类型, 有效值：
+        // wifi/2g/3g/4g/unknown(Android下不常见的网络类型)/none(无网络)
+        let { systemInfo } = this.data
+        systemInfo.networkType = res.networkType
+        this.setData({
+          systemInfo: systemInfo
+        })
+      }
+    })
+
+    // 截屏监听
+    wx.onUserCaptureScreen(function (res) {
+      console.log(res)
+      wx.showToast({
+        title: '用户截屏了',
+      })
+    })
+    // 获取屏幕亮度
+    wx.getScreenBrightness({
+      success: res => {
+        let { systemInfo } = this.data
+        console.log(res)
+        systemInfo.brightNess = res.value
+        this.setData({
+          systemInfo: systemInfo
+        })
+      }
+    })
+
+    // 查看是否授权
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function (res) {
+              console.log(res.userInfo)
+            }
+          })
+        }
+      }
+    })
   },
-  // scanQRCode: function () {
-  //   wx.scanCode({
-  //     success: function (result) {
-  //       wx.showModal(
-  //         {
-  //           content: JSON.stringify(result)
-  //         })
-  //     },
-  //     fail: function (error) {
-  //       wx.showModal(
-  //         {
-  //           content: JSON.stringify(error)
-  //         })
-  //     }
-  //   })
-  // },
-  previewImage: function (e) {
+  // 预览图片
+  previewImage: e => {
     console.log(this.data.qrcodeUrl.split(','))
     wx.previewImage({
       // 需要预览的图片http链接  使用split把字符串转数组。不然会报错  
-      urls: this.data.qrcodeUrl.split(',')  
+      urls: this.data.qrcodeUrl.split(',')
     });
     // wx.chooseImage({
     //   success: function (res) {
@@ -49,5 +92,8 @@ Page({
     //   }
     // })
   },
-
+  // 获取用户信息
+  bindGetUserInfo: e => {
+    console.log(e.detail.userInfo)
+  }
 })

@@ -50,19 +50,20 @@ App({
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch() {
-    wechat
-      .getLocation()
-      .then(res => {
-        const { latitude, longitude } = res
-        return baidu.getCityName(latitude, longitude)
-      })
-      .then(name => {
-        this.data.currentCity = name.replace('市', '')
-        console.log(`currentCity : ${this.data.currentCity}`)
-      })
-      .catch(err => {
-        this.data.currentCity = '北京'
-        console.error(err)
-      })
+    // console.log('onLaunch')
+    // wechat
+    //   .getLocation()
+    //   .then(res => {
+    //     const { latitude, longitude } = res
+    //     return baidu.getCityName(latitude, longitude)
+    //   })
+    //   .then(name => {
+    //     this.data.currentCity = name.replace('市', '')
+    //     console.log(`currentCity : ${this.data.currentCity}`)
+    //   })
+    //   .catch(err => {
+    //     this.data.currentCity = '北京'
+    //     console.error(err)
+    //   })
   }
 })
