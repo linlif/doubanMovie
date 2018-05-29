@@ -79,7 +79,7 @@
 
   <!-- 影人 -->
   <view class='section'>
-    <view class='section-title relative-title'>影人照片</view>
+    <view class='section-title relative-title'>影人照片(点击图片可查看大图)</view>
     <scroll-view class='casts' scroll-x>
       <block wx:for="{{casts}}" wx:for-item="item" wx:key="{{item.id}}">
         <view class='cast'>
@@ -95,7 +95,7 @@
 
   <!-- 剧照 -->
   <view class='section'>
-    <view class='section-title relative-title'>相关剧照</view>
+    <view class='section-title relative-title'>相关剧照(点击图片可查看大图)</view>
     <scroll-view class='photos' scroll-x>
       <block wx:for="{{photos}}" wx:for-item="item" wx:key="{{item.id}}">
         <!-- <view class='photo'> -->
@@ -107,7 +107,8 @@
 
   <view class='no-more'>没有更多了！</view>
 
-  <button open-type='share' class='share-btn'>
+  <cover-view bindtap='backToIndex' wx:if="{{isShared}}" class='share-btn'>查看更多电影</cover-view>
+  <button wx:else open-type='share' class='share-btn'>
     <cover-view bindtap='shareBtnTap' class='share-btn'>分享
     </cover-view>
   </button>

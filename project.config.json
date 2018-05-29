@@ -49,6 +49,12 @@
 					"name": "me",
 					"pathName": "pages/me/me",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "电影详情",
+					"pathName": "pages/detail/detail",
+					"query": ""
 				}
 			]
 		}

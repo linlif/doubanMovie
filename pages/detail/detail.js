@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // movieId: 0,
+    movieId: 0,
+    isShared: false
     // imgalist: [],
     // res: {},
     // casts: [],
@@ -20,16 +21,16 @@ Page({
       title: '加载中..',
       mask: true
     });
+    if (options.isShared) {
+      this.setData({
+        isShared: options.isShared
+      })
+    }
     this.setData({
       movieId: options.movieId,
     });
     app.douban.findOne(options.movieId).then(res => {
-      console.log(res)
       this.setData(res);
-
-      console.log('this.data')
-      console.log(this.data)
-
       wx.hideLoading();
     });
   },
@@ -73,8 +74,15 @@ Page({
     return {
       title: this.data.title,
       desc: this.data.summary,
-      path: '/pages/detial/detail'
+      path: `/pages/detail/detail?movieId=${this.data.movieId}&isShared=true`
     }
+  },
+
+  backToIndex() {
+    console.log(11)
+    wx.reLaunch({
+      url: '../index/index'
+    })
   },
 
   previewImage(e) {
@@ -85,7 +93,7 @@ Page({
       for (let [index, elem] of casts.entries()) {
         previewPhotos.push(elem.avatars.large);
       }
-    } 
+    }
     // 提取相关剧照
     else if (e.currentTarget.dataset.type == 'stagePhoto') {
       let photos = this.data.photos

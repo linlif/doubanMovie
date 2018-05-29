@@ -71,6 +71,38 @@ Page({
         }
       }
     })
+
+    // wx.downloadFile({
+    //   url: avatarUrl,
+    //   success(res) {
+    //     console.log(res)
+    //     const ctx = wx.createCanvasContext('myCanvas')
+    //     ctx.setFillStyle('red')
+
+    //     // ctx.fillRect(100, 100, 200, 200)
+    //     // ctx.draw()
+
+    //     ctx.drawImage(imgUrls[current], 0, 0, 320, 320)
+    //     ctx.drawImage(res.tempFilePath, 0, 0, 100, 100)
+    //     ctx.draw()
+
+    //     wx.canvasToTempFilePath({
+    //       canvasId: 'myCanvas',
+    //       success: function (res) {
+    //         wx.saveImageToPhotosAlbum({
+    //           filePath: res.tempFilePath,
+    //           success(res) {
+    //             wx.showToast({
+    //               title: '保存成功！',
+    //             })
+    //           }
+    //         })
+
+    //       }
+    //     })
+
+    //   }
+    // })
   },
   // 预览图片
   previewImage: e => {
